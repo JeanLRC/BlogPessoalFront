@@ -11,13 +11,13 @@ export class TemaService {
 
   constructor(private http: HttpClient) { }
 
-  cadastrar(tema: Tema): Observable<Tema>{
-    return this.http.post<Tema>('https://blogpessoal-jean.herokuapp.com/tema', tema);
-  }
-
   token = {
     headers: new HttpHeaders().set('Authorization', environment.token)
   }
+
+  // cadastrar(tema: Tema): Observable<Tema>{
+  //   return this.http.post<Tema>('https://blogpessoal-jean.herokuapp.com/tema', tema);
+  // }
 
   getTemas(): Observable<Tema[]>{
     return this.http.get<Tema[]>('https://blogpessoal-jean.herokuapp.com/tema', this.token);
